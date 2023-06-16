@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using SalesWebMvc.Data;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 namespace SalesWebMvc
 {
     public class Program
@@ -5,6 +9,10 @@ namespace SalesWebMvc
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddDbContext<SalesWebMvcContext>(options =>
+                options.UseMySql(builder.Configuration.GetConnectionString("SalesWebMvcContext"), new MySqlServerVersion("8.0.33")));
+
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
