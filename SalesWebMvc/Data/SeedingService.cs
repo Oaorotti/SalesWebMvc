@@ -98,6 +98,8 @@ namespace SalesWebMvc.Data
             SalesRecord r29 = new SalesRecord(29, new DateTime(2018, 10, 23), 12000.0, SaleStatus.Billed, s5);
 
             SalesRecord r30 = new SalesRecord(30, new DateTime(2018, 10, 12), 5000.0, SaleStatus.Billed, s2);
+            
+            _context.AddRange()
 
             _context.SaveChanges();
         }
